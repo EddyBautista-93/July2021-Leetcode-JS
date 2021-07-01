@@ -33,3 +33,15 @@
 // Constraints:
 
 // 1 <= n <= 16
+
+const grayCode = (n) => {
+    var res = [0];
+    var len = 1;
+    for (let i = 0; i < n; i++) {
+        len = res.length;
+        for (let j = len - 1; j >= 0; j--) {
+            res.push(res[j] + len)          
+        }       
+    }
+    return res;
+}
