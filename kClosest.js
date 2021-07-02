@@ -24,12 +24,17 @@ const findClosestElements = (arr, k, x) => {
     for (let i = 0; i < k; i++) {
         newArray.push(arr[i])     
     }
+    var closest = arr.reduce(function(prev, curr) {
+        return (Math.abs(curr - k) < Math.abs(prev - k) ? curr : prev);
+      });
+      
+      console.log(closest)
 
     newArray.sort(function(a,b) {
         return a - b;
     });
     console.log(newArray);
-};
+ };
 
 findClosestElements([1,2,3,4,5],3,-1)
 
