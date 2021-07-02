@@ -21,23 +21,21 @@
 
 // list the return array in asc order with a .sort(function(a,b) { return a - b;});
 // since the array is sorted I can use binary search 
-const findClosestElements = (arr, k, x) => {
-    var newArray = [];
-    const key = binarySearch(arr, x); // use function to pull in the key 
-    
-    for (let i = 0; i < k; i++) {
-        newArray.push(arr[i])     
-    }
-    var closest = arr.reduce(function(prev, curr) {
-        return (Math.abs(curr - k) < Math.abs(prev - k) ? curr : prev);
-      });
-      
-      console.log(closest)
 
-    newArray.sort(function(a,b) {
-        return a - b;
-    });
-    console.log(newArray);
+const findClosestElements = (arr, k, x) => {
+    let left = 0
+    let right = arr.length - 1
+  
+    while (left < right) {
+      let mid = Math.floor((left + right) / 2)
+  
+      if(x - arr[mid] > arr[mid + k] - x) {
+        left = mid + 1
+      } else {
+        right = mid
+      }
+    }
+    return arr.slice(left, left + k)
  };
 
  // implement a binary search function to use in the findClosest function 
@@ -63,5 +61,5 @@ const findClosestElements = (arr, k, x) => {
     }
 }
 
-findClosestElements([1,2,3,4,5],3,-1)
+findClosestElements([10, 12, 15, 17, 18, 20, 25],3,19);
 
