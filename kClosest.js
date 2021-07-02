@@ -13,7 +13,23 @@
 // Example 2:
 // Input: arr = [1,2,3,4,5], k = 4, x = -1
 // Output: [1,2,3,4]
- 
+
+// notes --
+// create a int array the size of k;
+
+// list the return array in asc order with a .sort(function(a,b) { return a - b;});
 const findClosestElements = (arr, k, x) => {
+    var newArray = [];
     
+    for (let i = 0; i < k; i++) {
+        newArray.push(arr[i])     
+    }
+
+    newArray.sort(function(a,b) {
+        return a - b;
+    });
+    console.log(newArray);
 };
+
+findClosestElements([1,2,3,4,5],3,-1)
+
