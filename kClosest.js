@@ -18,6 +18,7 @@
 // create a int array the size of k;
 
 // list the return array in asc order with a .sort(function(a,b) { return a - b;});
+// since the array is sorted I can use binary search 
 const findClosestElements = (arr, k, x) => {
     var newArray = [];
     
